@@ -12,11 +12,12 @@ class Turn
     number1 = rand(20)
     number2 = rand(20)
 
-    puts " ------ NEW TURN ------"
-    puts "#{player_1.name}, What is the answer to #{number1} + #{number2}"
+    puts " ------ ROUND #{@turn} ------"
+    puts @turn % 2 == 0 ? "Player 2: " : "Player 1: " 
+    puts "What is the answer to #{number1} + #{number2}"
     print "Your Answer: "
 
-    answer = $stdin.gets.chomp
+    answer = $stdin.gets.chomp.to_i
 
     if answer == number1 + number2
       puts "Yes, you are correct"
@@ -28,4 +29,3 @@ class Turn
   end
 end
 
-Turn.start
